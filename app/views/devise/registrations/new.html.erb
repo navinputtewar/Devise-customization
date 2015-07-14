@@ -1,0 +1,60 @@
+<div class="container">
+  <h2>Sign up</h2>
+  <%= form_for(@user, as: resource_name, url: registration_path(resource_name),:html => { :multipart => true }) do |f| %>
+    
+
+    <%= devise_error_messages! %>
+    <div class="field">
+      <%= f.label :First_Name %><br />
+      <%= f.text_field :first_name, :placeholder => "First Name", required: :true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Last_Name %><br />
+      <%= f.text_field :last_name, :placeholder => "Last Name", autofocus: true %>
+    </div>
+
+     <div class="field">
+      <%= f.label :Username %><br />
+      <%= f.text_field :username, :placeholder => "Username", required: :true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Date_Of_Birth %><br />
+      <%= f.date_field :dob, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Profile_Picture %><br />
+      <%= f.file_field :profile_picture, :placeholder => "Add Picture", autofocus: true %>
+    </div>
+
+    <div class="form-group has-success has-feedback">
+      <div class="field">
+        <%= f.label :Email %><br />
+        <%= f.email_field :email, :placeholder => "Email", type: :email, autofocus: true, required: :true %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :Password %><br />
+      <%= f.password_field :password, :placeholder => "Password", required: :true, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, :placeholder => "Password", required: :true, autocomplete: "off" %>
+    </div>
+
+    <div class="checkbox">
+      <%= f.label :ADMIN %>
+      <%= f.check_box :admin %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign_up", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

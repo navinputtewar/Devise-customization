@@ -1,0 +1,18 @@
+<div class="container">
+	<% if current_user.present? %>
+		<% if current_user.admin? %>
+		<h2>Welcome--Admin</h2>
+		<h4><%= link_to "Add New User", dashboard_new_path %></h4>
+
+		<h4><%= link_to "List of all Users", dashboard_listing_path %></h4>
+		<% else %>
+		<h2> Welcome--User </h2>
+		<h4><%= link_to "My Profile", dashboard_show_path %></h4>
+		<% end %>
+	<% else %> 
+	  <marquee behavior="alternate">
+	    <font color="skyblue">You need to Sign In or Sign Up before continuing...</font>
+	  </marquee>
+	<% end %>
+</div>
+

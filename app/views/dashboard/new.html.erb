@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>New--User</h1>
+  <%= form_for(@user, url: dashboard_create_path, method: :post,:html => { :multipart => true }) do |f| %>
+    <%= render 'errors' %>
+    <%= @user.errors.full_messages.first if @user.errors.any? %>
+    <div class="field ">
+      <%= f.label :First_Name %><br />
+      <%= f.text_field :first_name, :placeholder => "Enter name here.", required: :true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Last_Name %><br />
+      <%= f.text_field :last_name, :placeholder => "last name.", autofocus: true %>
+    </div>
+
+     <div class="field">
+      <%= f.label :Username %><br />
+      <%= f.text_field :username, :placeholder => "Username here.", required: :true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Date_Of_Birth %><br />
+      <%= f.date_field :dob, autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :Profile_Picture %><br />
+      <%= f.file_field :profile_picture, :placeholder => "add picture.", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <div class="field">
+        <%= f.label :Email %><br />
+        <%= f.email_field :email, :placeholder => "Email.", required: :true, autofocus: true %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= f.label :Password %><br />
+      <%= f.password_field :password, :placeholder => "Password", required: :true, autocomplete: "off" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, :placeholder => "Password.", required: :true, autocomplete: "off" %>
+    </div>
+      <br />
+    <div class="actions">
+      <%= f.submit "Sign_up", class: "btn btn-primary"%>
+    </div>
+  <% end %>
+
+  <%= link_to "Back",root_path %>
+</div>

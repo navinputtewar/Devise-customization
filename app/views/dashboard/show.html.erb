@@ -1,0 +1,12 @@
+<div class="container">
+	<h1>Profile-Page</h1>
+
+	<p> First Name      : <%= current_user.first_name %></p>
+	<p> Last Name       : <%= current_user.last_name %></p>
+	<p> Username        : <%= current_user.username %></p>
+	<p> Date of Birth   : <%= current_user.dob %></p>
+	<p> Email           : <%= current_user.email %></p>
+	<p> Profile Picture : <%= image_tag current_user.profile_picture.url(:small) %></p>
+
+	<%= link_to "Back",root_path %>
+</div>
